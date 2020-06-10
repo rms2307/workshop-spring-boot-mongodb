@@ -54,7 +54,7 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@PutMapping(value = "/{id}")
 	public ResponseEntity<Void> update(@RequestBody UserDTO objDTO, @PathVariable String id) {
 		User obj = service.fromDTO(objDTO);
@@ -62,9 +62,9 @@ public class UserResource {
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
 	}
-	
+
 	@GetMapping(value = "/{id}/posts")
-	public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
 		User obj = service.findById(id);
 		return ResponseEntity.ok().body(obj.getPosts());
 	}
